@@ -54,7 +54,7 @@ function displayList(offers, wrapper) {
     for (let i=0; i < offers.count && i < 6; i++) {
         
         let offer = document.createElement('tr');
-        offer.innerHTML = `<td>${offers.results[i].price}</td><td>${offers.results[i].amount}</td><td>${offers.results[i].total}</td>`
+        offer.innerHTML = `<td>${offers.results[i].price/10000}</td><td>${offers.results[i].amount}</td><td>${offers.results[i].total}</td>`
         wrapper.appendChild(offer);
     } 
     
@@ -75,7 +75,7 @@ function displayTrades(trades, wrapper) {
     for (let i=0; i < trades.count && i < 8; i++) {
         
         let trade = document.createElement('tr');
-        trade.innerHTML = `<td>${trades.results[i].rate}</td><td>${trades.results[i].amount}</td><td>${trades.results[i].rate * trades.results[i].amount}</td>`
+        trade.innerHTML = `<td>${trades.results[i].rate/10000}</td><td>${trades.results[i].amount}</td><td>${parseInt(trades.results[i].rate/10000 * trades.results[i].amount)}</td>`
         wrapper.appendChild(trade);
     } 
     
