@@ -22,7 +22,7 @@ apiErr2.innerText = "Oh no, seems like the API is not working."
 
 
 // BUY OFFERS
-fetch('https://tnbcrow.pythonanaaywhere.com/orders?ordering=-price&side=BUY&status=NEW').then(response => response.json()).then(offers => {
+fetch('https://tnbcrow.pythonanywhere.com/orders?ordering=-price&side=BUY&status=NEW').then(response => response.json()).then(offers => {
     if(offers.count > 0) {
         displayList(offers, buyWrap);
     } else {
@@ -35,7 +35,7 @@ fetch('https://tnbcrow.pythonanaaywhere.com/orders?ordering=-price&side=BUY&stat
 });
 
 // SELL OFFERS
-fetch("https://tnbcrow.pythonanywhere.com/ordaers?ordering=price&side=SELL&status=NEW").then(response => response.json().then(offers => {
+fetch("https://tnbcrow.pythonanywhere.com/orders?ordering=price&side=SELL&status=NEW").then(response => response.json().then(offers => {
     if (offers.count > 0){
         displayList(offers, sellWrap)
     } else {
