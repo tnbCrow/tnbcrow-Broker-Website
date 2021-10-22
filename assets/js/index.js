@@ -14,9 +14,15 @@ const errMsgSell = document.createElement("td")
 errMsgSell.colSpan = "3"
 errMsgSell.innerHTML = "Sorry, there are no sell offers available."
 
+const apiErr = document.createElement("h1");
+apiErr.innerText = "Oh no, seems like the API is not working."
+
+const apiErr2 = document.createElement("h1");
+apiErr2.innerText = "Oh no, seems like the API is not working."
+
 
 // BUY OFFERS
-fetch('https://tnbcrow.pythonanywhere.com/orders?ordering=-price&side=BUY&status=NEW').then(response => response.json()).then(offers => {
+fetch('https://tnbcrow.pythonanaaywhere.com/orders?ordering=-price&side=BUY&status=NEW').then(response => response.json()).then(offers => {
     if(offers.count > 0) {
         displayList(offers, buyWrap);
     } else {
@@ -24,14 +30,12 @@ fetch('https://tnbcrow.pythonanywhere.com/orders?ordering=-price&side=BUY&status
         buyWrap.appendChild(errMsgBuy)
     }
 }).catch(error => {
-    console.log(error);
-    errMsgBuy.innerHTML = "Oh No, seems like the API is not working"
-    buyMain.innerHTML = ''
-    buyMain.appendChild(errMsgBuy)
+    buyMain.innerHTML = ""
+    buyMain.appendChild(apiErr)
 });
 
 // SELL OFFERS
-fetch("https://tnbcrow.pythonanywhere.com/orders?ordering=price&side=SELL&status=NEW").then(response => response.json().then(offers => {
+fetch("https://tnbcrow.pythonanywhere.com/ordaers?ordering=price&side=SELL&status=NEW").then(response => response.json().then(offers => {
     if (offers.count > 0){
         displayList(offers, sellWrap)
     } else {
@@ -39,9 +43,9 @@ fetch("https://tnbcrow.pythonanywhere.com/orders?ordering=price&side=SELL&status
         sellWrap.appendChild(errMsgSell)
     }
 })).catch(err => {
-    errMsgSell.innerHTML = "Oh No, seems like the API is not working"
-    sellMain.innerHTML = ''
-    sellMain.appendChild(errMsgSell)
+    sellMain.innerHTML = ""
+    sellMain.appendChild(apiErr2)
+
 })
 
 function displayList(offers, wrapper) {
