@@ -7,10 +7,10 @@ const buyMain = document.getElementById("buyWrap")
 const tradesWrap = document.getElementById("trade")
 
 const errMsgBuy = document.createElement("h1")
-errMsgBuy.innerHTML = "There seems to be no Buy offers at the moment."
+errMsgBuy.innerHTML = "Sorry, there are no buy offers available."
 
 const errMsgSell = document.createElement("h1")
-errMsgSell.innerHTML = "There seems to be no Buy offers at the moment."
+errMsgSell.innerHTML = "Sorry, there are no sell offers available."
 
 
 // BUY OFFERS
