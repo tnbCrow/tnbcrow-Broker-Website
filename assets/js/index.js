@@ -6,20 +6,22 @@ const buyMain = document.getElementById("buyWrap")
 
 const tradesWrap = document.getElementById("trade")
 
-const errMsgBuy = document.createElement("h1")
-errMsgBuy.innerHTML = "There seems to be no Buy offers at the moment."
+const errMsgBuy = document.createElement("td")
+errMsgBuy.colSpan = "3"
+errMsgBuy.innerHTML = "Sorry, there are no buy offers available."
 
-const errMsgSell = document.createElement("h1")
-errMsgSell.innerHTML = "There seems to be no Buy offers at the moment."
+const errMsgSell = document.createElement("td")
+errMsgSell.colSpan = "3"
+errMsgSell.innerHTML = "Sorry, there are no sell offers available."
 
 
 // BUY OFFERS
-fetch('https://tnbcrow.pythonanywhere.com/orders?side=BUY&status=').then(response => response.json()).then(offers => {
+fetch('https://tnbcrow.pythonanywhere.com/orders?ordering=-price&side=BUY&status=NEW').then(response => response.json()).then(offers => {
     if(offers.count > 0) {
         displayList(offers, buyWrap);
     } else {
-        buyMain.innerHTML = ''
-        buyMain.appendChild(errMsgBuy)
+        buyWrap.innerHTML = ""
+        buyWrap.appendChild(errMsgBuy)
     }
 }).catch(error => {
     console.log(error);
@@ -29,12 +31,12 @@ fetch('https://tnbcrow.pythonanywhere.com/orders?side=BUY&status=').then(respons
 });
 
 // SELL OFFERS
-fetch("https://tnbcrow.pythonanywhere.com/orders?side=SELL&status=").then(response => response.json().then(offers => {
+fetch("https://tnbcrow.pythonanywhere.com/orders?ordering=price&side=SELL&status=NEW").then(response => response.json().then(offers => {
     if (offers.count > 0){
         displayList(offers, sellWrap)
     } else {
-        sellMain.innerHTML = ''
-        sellMain.appendChild(errMsgSell)
+        sellWrap.innerHTML = ""
+        sellWrap.appendChild(errMsgSell)
     }
 })).catch(err => {
     errMsgSell.innerHTML = "Oh No, seems like the API is not working"
@@ -45,10 +47,10 @@ fetch("https://tnbcrow.pythonanywhere.com/orders?side=SELL&status=").then(respon
 function displayList(offers, wrapper) {
 
     // let buy_offer_list = []
-    for (let i=0; i < offers.count && i < 8; i++) {
+    for (let i=0; i < offers.count && i < 6; i++) {
         
         let offer = document.createElement('tr');
-        offer.innerHTML = `<td>${offers.results[i].total}</td><td>${offers.results[i].amount}</td><td>${offers.results[i].price}</td>`
+        offer.innerHTML = `<td>${offers.results[i].price}</td><td>${offers.results[i].amount}</td><td>${offers.results[i].total}</td>`
         wrapper.appendChild(offer);
     } 
     
