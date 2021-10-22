@@ -14,7 +14,7 @@ errMsgSell.innerHTML = "There seems to be no Buy offers at the moment."
 
 
 // BUY OFFERS
-fetch('https://tnbcrow.pythonanywhere.com/orders?side=BUY&status=NEW').then(response => response.json()).then(offers => {
+fetch('https://tnbcrow.pythonanywhere.com/orders?ordering=-price&side=BUY&status=NEW').then(response => response.json()).then(offers => {
     if(offers.count > 0) {
         displayList(offers, buyWrap);
     } else {
@@ -29,7 +29,7 @@ fetch('https://tnbcrow.pythonanywhere.com/orders?side=BUY&status=NEW').then(resp
 });
 
 // SELL OFFERS
-fetch("https://tnbcrow.pythonanywhere.com/orders?side=SELL&status=NEW").then(response => response.json().then(offers => {
+fetch("https://tnbcrow.pythonanywhere.com/orders?ordering=price&side=SELL&status=NEW").then(response => response.json().then(offers => {
     if (offers.count > 0){
         displayList(offers, sellWrap)
     } else {
