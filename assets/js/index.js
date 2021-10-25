@@ -95,7 +95,7 @@ fetch("https://raw.githubusercontent.com/itsnikhil/tnb-analysis/master/web/js/st
 })
 
 fetch("https://tnbcrow.pythonanywhere.com/statistics").then(res => res.json()).then(data => {
-    rate.innerText = data.results[0].last_rate
+    rate.innerText = data.results[0].last_rate/10000
     cap.innerText = supply.innerText * rate.innerText
 }).catch(err => {
     rate.innerText = "There seems to be something wrong with the API"
