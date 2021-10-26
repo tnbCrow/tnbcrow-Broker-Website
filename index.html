@@ -84,25 +84,42 @@
       <div class="content-center">
         <div class="container">
           <h1 class="title">Trade TNBC anytime, hassle-free.</h1>
-          <div class="text-center">
-            <a href="#pablo" class="btn btn-primary">
-              Open Orders
-            </a>
-            <a href="#pablo" class="btn btn-primary">
-              Recent Trades
-            </a>
-          </div>
         </div>
       </div>
     </div>
     <div class="section section-about-us">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 ml-auto mr-auto text-center">
-            <h2 class="title">Who we are?</h2>
-            <h5 class="description">tnbCrow has been helping people trade TNBC from the start of 2021. Contact us to trade TNBC securely.</h5>
-          </div>
-        </div>
+					<div class="col ml-auto mr-auto text-center">
+						<h2 class="title text-center">Statistics</h2>
+						<div class="row">
+							<div class="col">
+								<div class="card">
+									<div class="card-body">
+										<h5 class="card-title">Last Trade Rate (USDC)</h5>
+										<h6 id="rate" class="card-subtitle mb-2 text-muted"></h6>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card">
+									<div class="card-body">
+										<h5 class="card-title">Circulating Supply</h5>
+										<h6 id="circ" class="card-subtitle mb-2 text-muted"></h6>
+									</div>
+								</div>
+							</div>
+							<div class="col">
+								<div class="card">
+									<div class="card-body">
+										<h5 class="card-title">Market Cap (USDC)</h5>
+										<h6 id="cap" class="card-subtitle mb-2 text-muted"></h6>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 				<h2 class="title text-center">Open Orders</h2>
 				<div class="row text-center">
 					<div class="col ml-auto mr-auto text-center" id="buyWrap">
@@ -110,9 +127,9 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th scope="col">Total (USDT)</th>
+									<th scope="col">Total (USDC)</th>
 									<th scope="col">Amount (TNBC)</th>
-									<th scope="col">Price (USDT)</th>
+									<th scope="col">Price (USDC)</th>
 								</tr>
 							</thead>
 							<tbody id="buy">
@@ -124,9 +141,9 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th scope="col">Price (USDT)</th>
+									<th scope="col">Price (USDC)</th>
 									<th scope="col">Amount (TNBC)</th>
-									<th scope="col">Total (USDT)</th>
+									<th scope="col">Total (USDC)</th>
 								</tr>
 							</thead>
 							<tbody id="sell">
@@ -145,25 +162,9 @@
 						<table class="table table-bordered">
 							<thead>
 								<tr>
-									<th scope="col">Price (USDT)</th>
+									<th scope="col">Price (USDC)</th>
 									<th scope="col">Amount (TNBC)</th>
-									<th scope="col">Total (USDT)</th>
-								</tr>
-							</thead>
-							<tbody id="trade">
-							</tbody>
-						</table>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col ml-auto mr-auto text-center">
-						<h2 class="title text-center">Statistics</h2>
-						<table class="table table-borderless">
-							<thead>
-								<tr>
-									<th scope="col">Last Trade Rate:  <span id="rate" style="font-weight: lighter;"></span></th>
-									<th scope="col">Circulating Supply:  <span id="circ" style="font-weight: lighter;"></span></th>
-									<th scope="col">Market Cap:  <span id="cap" style="font-weight: lighter;"></span></th>
+									<th scope="col">Total (USDC)</th>
 								</tr>
 							</thead>
 							<tbody id="trade">
