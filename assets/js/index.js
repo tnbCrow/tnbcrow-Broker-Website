@@ -94,7 +94,7 @@ const supply = document.getElementById('circ');
 console.log(cap)
 
 fetch("https://raw.githubusercontent.com/itsnikhil/tnb-analysis/master/web/js/static.json").then(res => res.json()).then(data => {
-	  circulating_supply = data.Total
+	  circulating_supply = data.Total;
     supply.innerText = numberWithCommas(data.Total);
 }).catch(err => {
     supply.innerText = "There seems to be something wrong with the API";
@@ -103,8 +103,8 @@ fetch("https://raw.githubusercontent.com/itsnikhil/tnb-analysis/master/web/js/st
 
 
 fetch("https://tnbcrow.pythonanywhere.com/statistics").then(res => res.json()).then(data => {
-    rate.innerText = numberWithCommas(data.results[0].last_rate/10000);
-    cap.innerText = numberWithCommas(circulating_supply * rate.innerText);
+    rate.innerText = data.results[0].last_rate/10000
+    cap.innerText = numberWithCommas(parseInt(circulating_supply * rate.innerText));
 }).catch(err => {
     rate.innerText = "There seems to be something wrong with the API"
     cap.innerText = "There seems to be something wrong with the API"
