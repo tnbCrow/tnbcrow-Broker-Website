@@ -83,9 +83,9 @@ fetch("https://raw.githubusercontent.com/itsnikhil/tnb-analysis/master/web/js/st
   cap.innerText = "There seems to be something wrong with the API"
 })
 
-fetch("https://tnbcrow.pythonanywhere.com/statistics").then(res => res.json()).then(data =>
+fetch("https://tnbcrow.pythonanywhere.com/recent-trades").then(res => res.json()).then(data =>
 {
-  rate.innerText = data.results[0].last_rate / 10000
+  rate.innerText = data.results[0].rate / 10000
   cap.innerText = numberWithCommas(parseInt(circulating_supply * rate.innerText));
 }).catch(err =>
 {
