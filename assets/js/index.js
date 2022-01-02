@@ -15,7 +15,7 @@ const apiErr = document.createElement("p");
 apiErr.innerText = "Oh no, seems like the API is not working."
 
 // SELL OFFERS
-fetch("https://tnbcrow-discord-bot.herokuapp.com/advertisement?format=json").then(response => response.json().then(offers =>
+fetch("https://tnbcrow-discord-bot.herokuapp.com/advertisement?ordering=price&side=SELL&format=json").then(response => response.json().then(offers =>
 {
   console.log(offers.count)
   if (offers.count > 0)
