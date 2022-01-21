@@ -8,20 +8,26 @@
   
           result.forEach(element => {
             xlabel.push(element.created_at)
-            ylabel.push(element.rate)
+            ylabel.push(parseFloat(element.rate)/10000 )
   
           });
   
           var myChart = new Chart(ctx, {
             type: 'line',
             options: {
+              responsive: true,
+              interaction: {
+                  intersect: false,
+                  axis: 'x'
+                  },
               scales: {
                 x: {
                   type: 'time',
                   time: {
                     minUnit: 'hour'
                   }
-                }
+                },
+                y: {suggestedMin: 0},
               },
               plugins: {
                 zoom: {
@@ -42,11 +48,10 @@
             data: {
               labels: xlabel,
               datasets: [{
-                label: "Market",
+                label: "TNBC Price",
                 data: ylabel,
-                fill: false,
                 borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
+                backgroundColor: 'rgba(0, 0, 0)',
               }]
             }
           });
