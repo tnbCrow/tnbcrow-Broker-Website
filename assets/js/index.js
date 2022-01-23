@@ -29,17 +29,16 @@ fetch("https://tnbcrow-discord-bot.herokuapp.com/advertisement?ordering=price&si
   }
 })).catch(err =>
 {
+  console.log(err);
   sellAdvertisementMain.innerHTML = ""
   sellAdvertisementMain.appendChild(apiErr)
 })
 
 function displayAdvertisements(offers, wrapper)
 {
-  // let buy_offer_list = []
-  for (let i = 0; i < 8; i++)
-  {
+  for (let data of offers.results) {
     let offer = document.createElement('tr');
-    offer.innerHTML = `<td>${offers.results[i].price/100000000}</td><td>${numberWithCommas(offers.results[i].amount/100000000)}</td>`
+    offer.innerHTML = `<td>${data.price/100000000}</td><td>${numberWithCommas(data.amount/100000000)}</td>`
     wrapper.appendChild(offer);
   }
 }
